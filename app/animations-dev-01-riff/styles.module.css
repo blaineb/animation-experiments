@@ -1,0 +1,66 @@
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: yellow; */
+}
+
+.loadingText {
+  font-size: 1rem;
+  font-weight: bold;
+  /* color: #666; */
+  background: linear-gradient(
+    90deg,
+    #999,
+    #ddd,
+    #999
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 2.2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.hoverText {
+  cursor: pointer;
+  transition:
+    0.35s padding
+}
+
+.hoverText:hover {
+  padding: 0 4px 0
+}
+
+/* To the right */
+.hoverText:hover + .hoverText {
+  padding: 0 2px 0
+}
+
+.hoverText:hover + .hoverText + .hoverText {
+  padding: 0 1px 0
+}
+
+/* To the left */
+.hoverText:has(+ .hoverText:hover) {
+  padding: 0 2px 0
+}
+
+.hoverText:has(+ .hoverText + .hoverText:hover) {
+  padding: 0 1px 0
+}
+
+
+.cursor {
+  cursor:default;
+}
